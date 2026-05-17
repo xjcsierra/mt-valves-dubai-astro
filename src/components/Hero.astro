@@ -1,22 +1,27 @@
 ---
 // MT Valves & Fittings UAE — Hero (Home)
+// Primary CTA is contact (always on). Catalogue CTA renders only if module is active.
+import { features } from '../config/site';
+
 interface Props { lang?: 'en' | 'ar'; }
 const { lang = 'en' } = Astro.props;
+
 const t = lang === 'ar'
   ? {
       eyebrow: 'صمامات صناعية · دبي',
       h1: 'الحصول على الصمامات والتركيبات من مركز MT في دبي.',
       sub: 'تصنيع إسباني · توزيع خليجي.',
-      cta1: 'استعرض الكتالوج',
-      cta2: 'اطلب عرض أسعار'
+      catalogue: 'استعرض الكتالوج',
+      contact: 'اتصل بنا'
     }
   : {
       eyebrow: 'Industrial valves · Dubai',
       h1: 'Source valves and fittings from MT’s Dubai hub.',
       sub: 'Spanish manufacturing · GCC distribution.',
-      cta1: 'Browse catalogue',
-      cta2: 'Request a quote'
+      catalogue: 'Browse catalogue',
+      contact: 'Get in touch'
     };
+
 const base = lang === 'ar' ? '/ar' : '';
 ---
 <section class="relative bg-paper border-b border-mist">
@@ -28,14 +33,19 @@ const base = lang === 'ar' ? '/ar' : '';
       </h1>
       <p class="mt-6 text-graphite text-xl max-w-2xl">{t.sub}</p>
       <div class="mt-10 flex flex-wrap gap-4">
-        <a href={base + '/catalogue/'} class="inline-flex items-center gap-2 bg-ink text-paper px-6 py-3 text-sm uppercase tracking-wider2 hover:bg-accent transition">
-          {t.cta1} <span aria-hidden="true">→</span>
-        </a>
-        <a href={base + '/contact/'} class="inline-flex items-center gap-2 border border-ink text-ink px-6 py-3 text-sm uppercase tracking-wider2 hover:bg-ink hover:text-paper transition">
-          {t.cta2}
-        </a>
+        {features.contact && (
+          <a href={base + '/contact/'} class="inline-flex items-center gap-2 bg-ink text-paper px-6 py-3 text-sm uppercase tracking-wider2 hover:bg-accent transition">
+            {t.contact} <span aria-hidden="true">→</span>
+          </a>
+        )}
+        {features.catalogue && (
+          <a href={base + '/catalogue/'} class="inline-flex items-center gap-2 border border-ink text-ink px-6 py-3 text-sm uppercase tracking-wider2 hover:bg-ink hover:text-paper transition">
+            {t.catalogue}
+          </a>
+        )}
       </div>
     </div>
+
     <div class="lg:col-span-4 hidden lg:block">
       <div class="aspect-[3/4] bg-mist border border-mist relative overflow-hidden">
         <div class="absolute inset-0 grid place-items-center">
