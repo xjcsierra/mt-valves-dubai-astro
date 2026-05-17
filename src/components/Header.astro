@@ -1,11 +1,26 @@
 ---
 // MT Valves & Fittings UAE — Header
+// Nav items render only if their feature flag is enabled.
+import { features } from '../config/site';
+
 interface Props { lang?: 'en' | 'ar'; }
 const { lang = 'en' } = Astro.props;
+
 const t = lang === 'ar'
-  ? { catalogue: 'الكتالوج', industries: 'القطاعات', knowledge: 'المعرفة', projects: 'المشاريع', contact: 'اتصل', altLang: 'EN', altHref: '/' }
-  : { catalogue: 'Catalogue', industries: 'Industries', knowledge: 'Knowledge', projects: 'Projects', contact: 'Contact', altLang: 'AR', altHref: '/ar/' };
+  ? { articles: 'المقالات', catalogue: 'الكتالوج', industries: 'القطاعات', knowledge: 'المعرفة', projects: 'المشاريع', contact: 'اتصل', altLang: 'EN', altHref: '/' }
+  : { articles: 'Articles', catalogue: 'Catalogue', industries: 'Industries', knowledge: 'Knowledge', projects: 'Projects', contact: 'Contact', altLang: 'AR', altHref: '/ar/' };
+
 const base = lang === 'ar' ? '/ar' : '';
+
+// Build nav items based on feature flags
+const navItems = [
+  { key: 'articles',    href: base + '/articles/',    label: t.articles,    enabled: features.articles },
+  { key: 'catalogue',   href: base + '/catalogue/',   label: t.catalogue,   enabled: features.catalogue },
+  { key: 'industries',  href: base + '/industries/',  label: t.industries,  enabled: features.industries },
+  { key: 'knowledge',   href: base + '/knowledge/',   label: t.knowledge,   enabled: features.knowledge },
+  { key: 'projects',    href: base + '/projects/',    label: t.projects,    enabled: features.projects },
+  { key: 'contact',     href: base + '/contact/',     label: t.contact,     enabled: features.contact }
+].filter(item => item.enabled);
 ---
 <header class="w-full bg-paper border-b border-mist">
   <div class="max-w-editorial mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
@@ -13,13 +28,15 @@ const base = lang === 'ar' ? '/ar' : '';
       <span class="font-display font-bold tracking-wider2 text-ink text-2xl">MT</span>
       <span class="hidden sm:inline-block eyebrow">Valves &amp; Fittings · UAE</span>
     </a>
+
     <nav class="hidden lg:flex items-center gap-8 text-sm uppercase tracking-wider2 text-graphite">
-      <a href={base + '/catalogue/'} class="hover:text-accent">{t.catalogue}</a>
-      <a href={base + '/industries/'} class="hover:text-accent">{t.industries}</a>
-      <a href={base + '/knowledge/'} class="hover:text-accent">{t.knowledge}</a>
-      <a href={base + '/projects/'} class="hover:text-accent">{t.projects}</a>
-      <a href={base + '/contact/'} class="hover:text-accent">{t.contact}</a>
+      {navItems.map(item => (
+        <a href={item.href} class="hover:text-accent">{item.label}</a>
+      ))}
     </nav>
-    <a href={t.altHref} class="text-xs uppercase tracking-widest2 text-steel hover:text-ink">{t.altLang}</a>
+
+    {features.arabic && (
+      <a href={t.altHref} class="text-xs uppercase tracking-widest2 text-steel hover:text-ink">{t.altLang}</a>
+    )}
   </div>
 </header>
