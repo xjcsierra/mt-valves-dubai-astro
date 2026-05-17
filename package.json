@@ -1,0 +1,24 @@
+{
+    "name": "mt-valves-dubai-astro",
+    "type": "module",
+    "version": "0.1.0",
+    "private": true,
+    "description": "MT Valves & Fittings UAE catalogue website (Astro + Tailwind) for mtme.ae",
+    "scripts": {
+          "dev": "astro dev",
+          "start": "astro dev",
+          "build": "astro build",
+          "preview": "astro preview",
+          "astro": "astro"
+    },
+    "dependencies": {
+          "@astrojs/sitemap": "^3.2.1",
+          "@astrojs/tailwind": "^5.1.4",
+          "astro": "^5.0.0",
+          "tailwindcss": "^3.4.17"
+    },
+    "devDependencies": {
+          "@types/node": "^22.10.2",
+          "typescript": "^5.7.2"
+    }
+}
