@@ -1,0 +1,25 @@
+---
+// MT Valves & Fittings UAE — Header
+interface Props { lang?: 'en' | 'ar'; }
+const { lang = 'en' } = Astro.props;
+const t = lang === 'ar'
+  ? { catalogue: 'الكتالوج', industries: 'القطاعات', knowledge: 'المعرفة', projects: 'المشاريع', contact: 'اتصل', altLang: 'EN', altHref: '/' }
+  : { catalogue: 'Catalogue', industries: 'Industries', knowledge: 'Knowledge', projects: 'Projects', contact: 'Contact', altLang: 'AR', altHref: '/ar/' };
+const base = lang === 'ar' ? '/ar' : '';
+---
+<header class="w-full bg-paper border-b border-mist">
+  <div class="max-w-editorial mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <a href={base + '/'} class="flex items-center gap-3" aria-label="MT Valves & Fittings home">
+      <span class="font-display font-bold tracking-wider2 text-ink text-2xl">MT</span>
+      <span class="hidden sm:inline-block eyebrow">Valves &amp; Fittings · UAE</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 text-sm uppercase tracking-wider2 text-graphite">
+      <a href={base + '/catalogue/'} class="hover:text-accent">{t.catalogue}</a>
+      <a href={base + '/industries/'} class="hover:text-accent">{t.industries}</a>
+      <a href={base + '/knowledge/'} class="hover:text-accent">{t.knowledge}</a>
+      <a href={base + '/projects/'} class="hover:text-accent">{t.projects}</a>
+      <a href={base + '/contact/'} class="hover:text-accent">{t.contact}</a>
+    </nav>
+    <a href={t.altHref} class="text-xs uppercase tracking-widest2 text-steel hover:text-ink">{t.altLang}</a>
+  </div>
+</header>
