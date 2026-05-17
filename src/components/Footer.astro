@@ -1,0 +1,40 @@
+---
+// MT Valves & Fittings UAE — Footer
+interface Props { lang?: 'en' | 'ar'; }
+const { lang = 'en' } = Astro.props;
+const year = new Date().getFullYear();
+const t = lang === 'ar'
+  ? { tagline: 'الوصول إلى صمامات موثوقة في دبي', rights: 'جميع الحقوق محفوظة', contact: 'اتصل', cat: 'الكتالوج' }
+  : { tagline: 'Source trusted industrial valves from Dubai', rights: 'All rights reserved', contact: 'Contact', cat: 'Catalogue' };
+---
+<footer class="w-full bg-ink text-paper mt-24">
+  <div class="max-w-editorial mx-auto px-6 lg:px-10 py-16 grid gap-10 md:grid-cols-4">
+    <div class="md:col-span-2">
+      <div class="font-display text-3xl font-bold tracking-wider2">MT</div>
+      <p class="mt-4 text-mist max-w-md">{t.tagline}</p>
+    </div>
+    <div>
+      <div class="eyebrow text-mist">Dubai · UAE</div>
+      <address class="not-italic mt-3 text-mist text-sm leading-relaxed">
+        Jebel Ali Free Zone<br />
+        Dubai, United Arab Emirates<br />
+        <a href="mailto:info@mtme.ae" class="underline hover:text-signal">info@mtme.ae</a>
+      </address>
+    </div>
+    <div>
+      <div class="eyebrow text-mist">{t.cat}</div>
+      <ul class="mt-3 space-y-2 text-mist text-sm">
+        <li><a href="/catalogue/" class="hover:text-signal">Butterfly</a></li>
+        <li><a href="/catalogue/" class="hover:text-signal">Ball</a></li>
+        <li><a href="/catalogue/" class="hover:text-signal">Gate / Globe / Check</a></li>
+        <li><a href="/contact/" class="hover:text-signal">{t.contact}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-graphite">
+    <div class="max-w-editorial mx-auto px-6 lg:px-10 py-6 text-xs text-steel flex justify-between">
+      <span>© {year} MT Valves & Fittings UAE</span>
+      <span>{t.rights}</span>
+    </div>
+  </div>
+</footer>
