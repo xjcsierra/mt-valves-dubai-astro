@@ -1,0 +1,45 @@
+/* MT Valves & Fittings UAE — global styles */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --mt-ink: #0E1419;
+    --mt-graphite: #3A4148;
+    --mt-steel: #7B848C;
+    --mt-mist: #E8EBEE;
+    --mt-paper: #F6F7F8;
+    --mt-accent: #0B7DBB;
+    --mt-signal: #E07A00;
+  }
+
+  html {
+    font-family: 'Barlow Condensed', Inter, system-ui, sans-serif;
+    color: var(--mt-ink);
+    background: var(--mt-paper);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply text-base leading-relaxed;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-ink;
+    font-weight: 600;
+  }
+
+  /* Editorial uppercase eyebrow */
+  .eyebrow {
+    @apply uppercase tracking-widest2 text-xs text-steel;
+  }
+
+  /* RTL helpers for Arabic locale */
+  [dir="rtl"] {
+    font-family: 'Barlow Condensed', system-ui, sans-serif;
+  }
+}
