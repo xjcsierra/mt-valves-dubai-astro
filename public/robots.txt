@@ -1,0 +1,5 @@
+# MT Valves & Fittings UAE — robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://mtme.ae/sitemap-index.xml
