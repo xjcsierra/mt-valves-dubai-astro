@@ -8,13 +8,13 @@ const { lang = 'en' } = Astro.props;
 const year = new Date().getFullYear();
 
 const t = lang === 'ar'
-  ? { tagline: 'الوصول إلى صمامات موثوقة في دبي', rights: 'جميع الحقوق محفوظة', contact: 'اتصل', articles: 'المقالات', cat: 'الكتالوج' }
-  : { tagline: 'Source trusted industrial valves from Dubai', rights: 'All rights reserved', contact: 'Contact', articles: 'Articles', cat: 'Catalogue' };
+  ? { tagline: 'الوصول إلى صمامات موثوقة في دبي', rights: 'جميع الحقوق محفوظة', contact: 'اتصل', articles: 'المقالات', site: 'الموقع', butterfly: 'صمامات فراشة', ball: 'صمامات كرة', gate: 'صمامات بوابة' }
+  : { tagline: 'Source trusted industrial valves from Dubai', rights: 'All rights reserved', contact: 'Contact', articles: 'Articles', site: 'Site', butterfly: 'Butterfly', ball: 'Ball', gate: 'Gate / Globe / Check' };
 ---
 <footer class="w-full bg-ink text-paper mt-24">
   <div class="max-w-editorial mx-auto px-6 lg:px-10 py-16 grid gap-10 md:grid-cols-4">
     <div class="md:col-span-2">
-      <div class="font-display text-3xl font-bold tracking-wider2">MT</div>
+      <img src="/logo.svg" alt="MT Valves & Fittings" class="h-10 w-auto brightness-0 invert" width="220" height="64" />
       <p class="mt-4 text-mist max-w-md">{t.tagline}</p>
     </div>
 
@@ -28,14 +28,14 @@ const t = lang === 'ar'
     </div>
 
     <div>
-      <div class="eyebrow text-mist">Site</div>
+      <div class="eyebrow text-mist">{t.site}</div>
       <ul class="mt-3 space-y-2 text-mist text-sm">
         {features.articles && (<li><a href="/articles/" class="hover:text-signal">{t.articles}</a></li>)}
         {features.contact && (<li><a href="/contact/" class="hover:text-signal">{t.contact}</a></li>)}
         {features.catalogue && (<>
-          <li><a href="/catalogue/" class="hover:text-signal">Butterfly</a></li>
-          <li><a href="/catalogue/" class="hover:text-signal">Ball</a></li>
-          <li><a href="/catalogue/" class="hover:text-signal">Gate / Globe / Check</a></li>
+          <li><a href="/catalogue/" class="hover:text-signal">{t.butterfly}</a></li>
+          <li><a href="/catalogue/" class="hover:text-signal">{t.ball}</a></li>
+          <li><a href="/catalogue/" class="hover:text-signal">{t.gate}</a></li>
         </>)}
       </ul>
     </div>
