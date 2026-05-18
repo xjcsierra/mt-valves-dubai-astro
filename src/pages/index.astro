@@ -1,95 +1,73 @@
 ---
-// MT Valves & Fittings UAE — Landing (Phase 1)
-// Sections render conditionally based on feature flags in src/config/site.ts.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import { site, features } from '../config/site';
----
-<BaseLayout
-  title="MT Valves & Fittings UAE — Industrial Valves · Dubai Hub"
-  description="MT Valves & Fittings — Dubai-based supplier of industrial valves and fittings for HVAC, district cooling, water and oil & gas across the UAE and GCC."
-  lang="en"
->
-  <Hero lang="en" />
+import { features } from '../config/features';
 
-  {/* About / Sectors */}
-  <section class="max-w-editorial mx-auto px-6 lg:px-10 py-20">
-    <div class="grid lg:grid-cols-12 gap-12">
-      <div class="lg:col-span-5">
-        <div class="eyebrow text-accent">About MT in Dubai</div>
-        <h2 class="mt-3 font-display font-semibold text-3xl lg:text-5xl tracking-tight">
-          A Spanish valve manufacturer with a hub in the UAE.
-        </h2>
-      </div>
-      <div class="lg:col-span-7 text-lg text-graphite leading-relaxed space-y-5">
-        <p>
-          MT Valves & Fittings designs and manufactures industrial valves in Spain and operates a
-          dedicated logistics and commercial hub in Dubai’s Jebel Ali Free Zone to serve the
-          Gulf region.
-        </p>
-        <p>
-          We supply contractors, EPC firms and distributors working in HVAC, district cooling,
-          water networks, oil & gas and marine applications.
-        </p>
+const title = 'MT Valves & Fittings · Now open in the UAE';
+const description = 'MT Valves & Fittings has opened its public hub in Dubai. Industrial valves, fittings and flow-control solutions for the Middle East market.';
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Announcement bar -->
+  <div class="bg-mt-navy text-white">
+    <div class="mx-auto max-w-7xl px-4 py-2 text-center text-sm">
+      🎉 <span class="font-semibold">We are now open in the UAE.</span>
+      <span class="hidden sm:inline opacity-90"> Dubai hub serving the Middle East market.</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-mt-navy via-mt-navy to-mt-blue text-white">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:py-28">
+      <p class="text-sm uppercase tracking-widest text-mt-sky">Public opening · Dubai, UAE</p>
+      <h1 class="mt-3 text-4xl sm:text-6xl font-bold leading-tight max-w-4xl">
+        MT Valves &amp; Fittings is now open in the United Arab Emirates.
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg text-mt-sky-200/90">
+        After more than two decades supplying industrial valves and fittings across Europe,
+        MT brings its full catalogue and engineering support to the Middle East from its new
+        Jebel Ali Free Zone hub in Dubai.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/contact" class="inline-flex items-center rounded-xl bg-white px-5 py-3 text-mt-navy font-semibold hover:bg-mt-sky-200 transition">Request a quote</a>
+        {features.articles && (
+          <a href="/articles" class="inline-flex items-center rounded-xl border border-white/40 px-5 py-3 text-white font-semibold hover:bg-white/10 transition">Read our articles</a>
+        )}
       </div>
     </div>
   </section>
 
-  {/* Latest articles (Phase 1 — placeholders) */}
-  {features.articles && (
-    <section class="bg-mist/40 border-y border-mist">
-      <div class="max-w-editorial mx-auto px-6 lg:px-10 py-20">
-        <div class="flex items-end justify-between flex-wrap gap-4">
-          <div>
-            <div class="eyebrow text-accent">Articles</div>
-            <h2 class="mt-3 font-display font-semibold text-3xl lg:text-4xl tracking-tight">From the desk</h2>
-          </div>
-          <a href="/articles/" class="text-sm uppercase tracking-wider2 text-graphite hover:text-accent">All articles →</a>
-        </div>
-        <div class="mt-10 grid md:grid-cols-3 gap-8">
-          <article class="bg-paper border border-mist p-6">
-            <div class="eyebrow text-steel">UAE · Launch</div>
-            <h3 class="mt-3 font-display font-semibold text-xl leading-snug">MT opens its Dubai hub for GCC distribution</h3>
-            <p class="mt-3 text-sm text-graphite">A new chapter for MT in the region, with local stock and expert advisory.</p>
-          </article>
-          <article class="bg-paper border border-mist p-6">
-            <div class="eyebrow text-steel">HVAC · Technical</div>
-            <h3 class="mt-3 font-display font-semibold text-xl leading-snug">Choosing the right butterfly valve for district cooling</h3>
-            <p class="mt-3 text-sm text-graphite">Torque, sealing and material guidance for typical Gulf installations.</p>
-          </article>
-          <article class="bg-paper border border-mist p-6">
-            <div class="eyebrow text-steel">Standards</div>
-            <h3 class="mt-3 font-display font-semibold text-xl leading-snug">ISO 5211 mounting interfaces — a quick reference</h3>
-            <p class="mt-3 text-sm text-graphite">A short reference table for F03 to F25 actuator mounting.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  )}
+  <!-- What we do -->
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:py-20">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl sm:text-3xl font-bold text-mt-navy">Industrial flow-control for the Gulf</h2>
+      <p class="mt-3 text-slate-600">
+        Ball, gate, globe and check valves. Pipe fittings, flanges and accessories.
+        Stock available in Dubai and direct factory shipments for project quantities.
+      </p>
+    </div>
 
-  {/* Contact — Phase 1 */}
-  {features.contact && (
-    <section class="max-w-editorial mx-auto px-6 lg:px-10 py-20">
-      <div class="grid lg:grid-cols-12 gap-12 items-start">
-        <div class="lg:col-span-5">
-          <div class="eyebrow text-accent">Contact</div>
-          <h2 class="mt-3 font-display font-semibold text-3xl lg:text-5xl tracking-tight">Talk to our Dubai team.</h2>
-          <p class="mt-6 text-graphite text-lg">Tell us about your project. We typically reply within one business day.</p>
-        </div>
-        <div class="lg:col-span-7 space-y-4 text-lg">
-          <div>
-            <div class="eyebrow text-steel">Office</div>
-            <p class="mt-1">{site.address.line1}<br />{site.address.line2}</p>
-          </div>
-          <div>
-            <div class="eyebrow text-steel">Email</div>
-            <p class="mt-1"><a href={'mailto:' + site.email} class="underline hover:text-accent">{site.email}</a></p>
-          </div>
-          <a href="/contact/" class="inline-flex items-center gap-2 bg-ink text-paper px-6 py-3 text-sm uppercase tracking-wider2 hover:bg-accent transition">
-            Send a message →
-          </a>
-        </div>
-      </div>
-    </section>
-  )}
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h3 class="text-lg font-semibold text-mt-navy">Valves</h3>
+        <p class="mt-2 text-sm text-slate-600">Ball, gate, globe, check and butterfly valves in carbon and stainless steel.</p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h3 class="text-lg font-semibold text-mt-navy">Fittings &amp; Flanges</h3>
+        <p class="mt-2 text-sm text-slate-600">Elbows, tees, reducers, caps and flanges. Multiple pressure classes.</p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h3 class="text-lg font-semibold text-mt-navy">Engineering support</h3>
+        <p class="mt-2 text-sm text-slate-600">Datasheets, material certificates and project assistance from our Dubai team.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 py-16 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-mt-navy">Talk to our Dubai team</h2>
+      <p class="mt-3 text-slate-600">Jebel Ali Free Zone · Dubai, UAE · info@mtme.ae</p>
+      <a href="/contact" class="mt-6 inline-flex items-center rounded-xl bg-mt-navy px-5 py-3 text-white font-semibold hover:bg-mt-blue transition">Contact us</a>
+    </div>
+  </section>
 </BaseLayout>
