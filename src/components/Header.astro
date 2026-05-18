@@ -7,36 +7,46 @@ interface Props { lang?: 'en' | 'ar'; }
 const { lang = 'en' } = Astro.props;
 
 const t = lang === 'ar'
-  ? { articles: 'المقالات', catalogue: 'الكتالوج', industries: 'القطاعات', knowledge: 'المعرفة', projects: 'المشاريع', contact: 'اتصل', altLang: 'EN', altHref: '/' }
-  : { articles: 'Articles', catalogue: 'Catalogue', industries: 'Industries', knowledge: 'Knowledge', projects: 'Projects', contact: 'Contact', altLang: 'AR', altHref: '/ar/' };
+  ? { articles: 'المقالات', catalogue: 'الكتالوج', industries: 'القطاعات', knowledge: 'المعرفة', projects: 'المشاريع', contact: 'اتصل بنا' }
+  : { articles: 'Articles', catalogue: 'Catalogue', industries: 'Industries', knowledge: 'Knowledge', projects: 'Projects', contact: 'Contact' };
 
 const base = lang === 'ar' ? '/ar' : '';
 
 // Build nav items based on feature flags
 const navItems = [
-  { key: 'articles',    href: base + '/articles/',    label: t.articles,    enabled: features.articles },
-  { key: 'catalogue',   href: base + '/catalogue/',   label: t.catalogue,   enabled: features.catalogue },
-  { key: 'industries',  href: base + '/industries/',  label: t.industries,  enabled: features.industries },
-  { key: 'knowledge',   href: base + '/knowledge/',   label: t.knowledge,   enabled: features.knowledge },
-  { key: 'projects',    href: base + '/projects/',    label: t.projects,    enabled: features.projects },
-  { key: 'contact',     href: base + '/contact/',     label: t.contact,     enabled: features.contact }
+  { key: 'articles',   href: base + '/articles/',    label: t.articles,   enabled: features.articles },
+  { key: 'catalogue',  href: base + '/catalogue/',   label: t.catalogue,  enabled: features.catalogue },
+  { key: 'industries', href: base + '/industries/',  label: t.industries, enabled: features.industries },
+  { key: 'knowledge',  href: base + '/knowledge/',   label: t.knowledge,  enabled: features.knowledge },
+  { key: 'projects',   href: base + '/projects/',    label: t.projects,   enabled: features.projects },
+  { key: 'contact',    href: base + '/contact/',     label: t.contact,    enabled: features.contact }
 ].filter(item => item.enabled);
 ---
+
 <header class="w-full bg-paper border-b border-mist">
   <div class="max-w-editorial mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
     <a href={base + '/'} class="flex items-center gap-3" aria-label="MT Valves & Fittings home">
-      <span class="font-display font-bold tracking-wider2 text-ink text-2xl">MT</span>
-      <span class="hidden sm:inline-block eyebrow">Valves &amp; Fittings · UAE</span>
+      <img src="/logo.svg" alt="MT Valves & Fittings" class="h-10 w-auto" width="220" height="64" />
+      <span class="sr-only">MT Valves & Fittings UAE</span>
     </a>
 
-    <nav class="hidden lg:flex items-center gap-8 text-sm uppercase tracking-wider2 text-graphite">
+    <nav class="hidden lg:flex items-center gap-8 text-sm uppercase tracking-wider2 text-graphite" aria-label="Primary">
       {navItems.map(item => (
-        <a href={item.href} class="hover:text-accent">{item.label}</a>
+        <a href={item.href} class="hover:text-ink transition-colors">{item.label}</a>
       ))}
     </nav>
 
-    {features.arabic && (
-      <a href={t.altHref} class="text-xs uppercase tracking-widest2 text-steel hover:text-ink">{t.altLang}</a>
-    )}
+    <div class="flex items-center gap-3">
+      {features.arabic && (
+        <a href={lang === 'ar' ? '/' : '/ar/'} class="text-sm uppercase tracking-wider2 text-graphite hover:text-ink">
+          {lang === 'ar' ? 'EN' : 'العربية'}
+        </a>
+      )}
+      {features.contact && (
+        <a href={base + '/contact/'} class="hidden sm:inline-flex items-center px-4 py-2 text-sm uppercase tracking-wider2 bg-ink text-paper hover:bg-graphite transition-colors">
+          {lang === 'ar' ? 'طلب عرض' : 'Get a Quote'}
+        </a>
+      )}
+    </div>
   </div>
 </header>
