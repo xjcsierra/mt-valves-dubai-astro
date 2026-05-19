@@ -1,41 +1,53 @@
 /**
  * Cloudflare Pages Function: edge middleware.
  *
- * Protects the /team/* area with HTTP Basic Authentication.
+ * Protects the entire site with HTTP Basic Authentication when accessed
+ * via the preview hostname (preview.mtme.ae). The public hostname
+ * (mtme.ae and www.mtme.ae) is always accessible without auth.
+ *
  * Credentials are read from environment variables configured in the
- * Cloudflare Pages dashboard (Settings → Environment variables), NOT from
- * this repository. Do NOT commit secrets in this file.
+ * Cloudflare Pages dashboard (Settings -> Environment variables), NOT
+ * from this repository. Do NOT commit secrets in this file.
  *
- * Required env vars:
- *   TEAM_USER     - basic-auth username (e.g. admin)
- *   TEAM_PASSWORD - basic-auth password (set as a Secret)
+ * Required env vars (set in Cloudflare Pages):
+ *   PREVIEW_USER     - basic-auth username (e.g. mt-team)
+ *   PREVIEW_PASSWORD - basic-auth password (set as a Secret)
  *
- * All other routes pass through untouched.
+ * Hostnames that are PROTECTED:
+ *   - preview.mtme.ae   (full site behind basic-auth)
+ *
+ * Hostnames that are PUBLIC:
+ *   - mtme.ae           (no auth)
+ *   - www.mtme.ae       (no auth)
+ *   - *.pages.dev       (no auth - Cloudflare preview deploys)
  */
-
 interface Env {
-  TEAM_USER?: string;
-  TEAM_PASSWORD?: string;
+  PREVIEW_USER?: string;
+  PREVIEW_PASSWORD?: string;
 }
 
 export const onRequest: PagesFunction<Env> = async (context) => {
   const { request, env, next } = context;
   const url = new URL(request.url);
+  const hostname = url.hostname.toLowerCase();
 
-  // Only guard the private team area.
-  if (!url.pathname.startsWith('/team')) {
+  // Only protect the preview hostname. Public hostnames pass through.
+  if (hostname !== 'preview.mtme.ae') {
     return next();
   }
 
-  const expectedUser = env.TEAM_USER || '';
-  const expectedPass = env.TEAM_PASSWORD || '';
+  const expectedUser = env.PREVIEW_USER || '';
+  const expectedPass = env.PREVIEW_PASSWORD || '';
 
   // If credentials are not configured, refuse access entirely (fail closed).
   if (!expectedUser || !expectedPass) {
-    return new Response('Team area is not configured. Set TEAM_USER and TEAM_PASSWORD in Cloudflare Pages environment variables.', {
-      status: 503,
-      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-    });
+    return new Response(
+      'Preview area is not configured. Set PREVIEW_USER and PREVIEW_PASSWORD in Cloudflare Pages environment variables.',
+      {
+        status: 503,
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+      }
+    );
   }
 
   const auth = request.headers.get('Authorization') || '';
@@ -60,10 +72,10 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   return new Response('Authentication required.', {
     status: 401,
     headers: {
-      'WWW-Authenticate': 'Basic realm="MT Team Area", charset="UTF-8"',
+      'WWW-Authenticate': 'Basic realm="MT Middle East Preview", charset="UTF-8"',
       'Content-Type': 'text/plain; charset=utf-8',
-      'Cache-Control': 'no-store',
-    },
+      'Cache-Control': 'no-store'
+    }
   });
 };
 

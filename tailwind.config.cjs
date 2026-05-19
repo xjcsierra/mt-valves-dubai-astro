@@ -6,20 +6,22 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // Primary brand typography — Barlow Condensed (matches mtspain.net)
         display: ['"Barlow Condensed"', 'Inter', 'system-ui', 'sans-serif'],
         sans: ['"Barlow Condensed"', 'Inter', 'system-ui', 'sans-serif']
       },
       colors: {
-        // MT brand palette (corporate — editorial — fluid)
-        ink: '#0E1419',          // headings / dark body
-        graphite: '#3A4148',     // secondary text
-        steel: '#7B848C',        // muted / metadata
-        mist: '#E8EBEE',         // dividers / surfaces
-        paper: '#F6F7F8',        // page background
-        accent: '#0B7DBB',       // MT corporate blue (industrial)
+        ink: '#0E1419',
+        graphite: '#3A4148',
+        steel: '#7B848C',
+        mist: '#E8EBEE',
+        paper: '#F6F7F8',
+        accent: '#0B7DBB',
         accentDark: '#085A89',
-        signal: '#E07A00'        // CTA / hover
+        signal: '#1F5AA8',
+        'mt-navy':    '#0A1F3D',
+        'mt-blue':    '#1F5AA8',
+        'mt-sky':     '#2E78D2',
+        'mt-sky-200': '#96BCE5'
       },
       letterSpacing: {
         wider2: '0.06em',

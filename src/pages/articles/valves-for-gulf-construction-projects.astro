@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../config/site';
+
+const title = 'Valves for Gulf construction projects — MT Middle East';
+const description = 'A practical guide to specifying valves for construction projects in the UAE and GCC. Materials, certifications and product families that meet the region\'s regulatory and environmental demands.';
+---
+<BaseLayout title={title} description={description} lang="en-GB">
+  <article class="max-w-editorial mx-auto px-6 lg:px-10 py-20">
+
+    <a href="/articles" class="eyebrow text-steel hover:text-accent transition">&larr; All news</a>
+
+    <div class="mt-6 eyebrow text-accent">Technical · Specification guide</div>
+
+    <h1 class="mt-3 font-display font-bold text-4xl lg:text-6xl tracking-tight leading-tight">
+      Valves for construction projects in the Gulf: what the GCC market actually requires
+    </h1>
+
+    <p class="mt-6 text-xl text-graphite max-w-3xl leading-relaxed">
+      Specifying valves for a project in the UAE or Saudi Arabia is not the same as specifying for Europe. Climate, regulation and tender documentation impose criteria any MEP contractor or project specifier should understand before submitting a product list.
+    </p>
+
+    <div class="mt-12 prose prose-lg max-w-3xl text-graphite leading-relaxed space-y-6">
+
+      <p>
+        The Gulf climate is unforgiving. Ambient temperatures regularly exceed 50&nbsp;°C in summer, relative humidity in coastal zones can reach 90&nbsp;%, and atmospheric chloride concentration in proximity to the sea is significantly higher than in continental Europe. These conditions have direct consequences on the selection of valve materials. Brass alloys without DZR (Dezincification Resistant) treatment are exposed to selective zinc corrosion in potable water networks. Standard AISI 304 stainless steel is insufficient for installations exposed to marine atmospheres — AISI 316 is the minimum specification in many coastal projects. Ductile iron valves for water distribution networks typically require internal epoxy coating to meet the specifications of DEWA, FEWA, ADDC, Kahramaa or SAWS.
+      </p>
+
+      <h2 class="font-display font-semibold text-2xl text-ink mt-12">Certification: CE is not enough</h2>
+
+      <p>
+        One of the most common errors of European manufacturers attempting to enter the Gulf market is to assume that CE marking alone is sufficient. It is not. Infrastructure projects and contracts with public utilities require specific approvals that go beyond the European framework.
+      </p>
+
+      <p>
+        WRAS (UK) and DVGW (Germany) are the gold-standard approvals for potable water contact in the region — both for their technical rigour and for the British and German normative heritage that shapes GCC specifications. WaterMark (Australia) is increasingly valued in projects that have adopted Australian potable water standards. ISO 9001 is a baseline requirement across virtually every tender. FM and UL certifications are mandatory for fire protection systems. And for oil &amp; gas process applications, API 6D and API 598 are non-negotiable.
+      </p>
+
+      <h2 class="font-display font-semibold text-2xl text-ink mt-12">Product families that lead demand</h2>
+
+      <p>
+        The most demanded valves in GCC construction projects fall into four categories. <strong class="text-ink">Ball valves</strong> dominate plumbing, HVAC and irrigation flow shut-off applications — DZR brass and stainless steel versions carrying WRAS or DVGW approval lead demand in residential and hospitality projects.
+      </p>
+
+      <p>
+        <strong class="text-ink">Butterfly valves</strong> — particularly the wafer type with cast iron body, stainless steel disc and EPDM seat — are the MEP standard for large-diameter hot and cold water distribution in high-rise buildings across Dubai, Abu Dhabi, Doha and Riyadh. <strong class="text-ink">Check valves</strong> are critical in pumping systems, municipal water supply networks and desalination plants. And <strong class="text-ink">expansion joints</strong> in EPDM rubber are essential to compensate for the substantial thermal differentials between air-conditioned interiors and the exterior environment in HVAC pipework.
+      </p>
+
+      <h2 class="font-display font-semibold text-2xl text-ink mt-12">Documentation is part of the product</h2>
+
+      <p>
+        Tender submissions in the region typically require declarations of conformity per project, EN 10204 3.1 material test reports for specified batches, certificate copies signed by the manufacturer, and increasingly, BIM-ready Revit families and 3D models for coordination in BIM-driven projects. Suppliers who cannot produce this documentation quickly and in the correct format risk disqualification regardless of product quality.
+      </p>
+
+      <p>
+        MT's catalogue is structured to deliver this documentation on demand for every product family, with a dedicated Digital Pack (PIM) that integrates with distributor workflows and project specification platforms.
+      </p>
+
+      <h2 class="font-display font-semibold text-2xl text-ink mt-12">Lead time is a specification criterion</h2>
+
+      <p>
+        A valve that meets every technical requirement but ships in 12 weeks may not be specified at all if a comparable product with local stock is available. This is precisely why MT established its Dubai hub: to deliver European-grade products with European certification on GCC project timelines. With stock available in Jumeirah Lakes Towers and 48-hour dispatch across the UAE, MT can be specified for projects where supply chain risk would otherwise force a compromise on quality or certification.
+      </p>
+
+    </div>
+
+    <div class="mt-16 pt-10 border-t border-mist">
+      <div class="eyebrow text-steel">Talk to MT Middle East</div>
+      <p class="mt-3 text-lg">
+        For project-specific stock, pricing in AED, technical datasheets and BIM/CAD files, talk to our team in Dubai.
+      </p>
+      <p class="mt-3 text-lg">
+        <a href={'mailto:' + site.email} class="text-accent underline hover:text-accentDark">{site.email}</a>
+        &nbsp;·&nbsp; {site.phone} &nbsp;·&nbsp; {site.hours}
+      </p>
+      <a href="/contact" class="mt-6 inline-block bg-ink text-paper px-6 py-3 text-sm uppercase tracking-wider2 hover:bg-accent transition">
+        Request a quote &rarr;
+      </a>
+    </div>
+
+  </article>
+</BaseLayout>

@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../config/site';
+
+const title = '14 international certifications — MT Middle East';
+const description = 'MT\'s portfolio of 14 active international certifications — DVGW, WRAS, ACS, KIWA, WaterMark, TÜV ISO 9001 and more — opens doors in over 50 markets. A practical guide to what each one means.';
+---
+<BaseLayout title={title} description={description} lang="en-GB">
+  <article class="max-w-editorial mx-auto px-6 lg:px-10 py-20">
+
+    <a href="/articles" class="eyebrow text-steel hover:text-accent transition">&larr; All news</a>
+
+    <div class="mt-6 eyebrow text-accent">Quality · Certifications</div>
+
+    <h1 class="mt-3 font-display font-bold text-4xl lg:text-6xl tracking-tight leading-tight">
+      14 international certifications: how MT's approvals open doors in 50 markets
+    </h1>
+
+    <p class="mt-6 text-xl text-graphite max-w-3xl leading-relaxed">
+      In the industrial sector, a certification is not just a document. It is the difference between entering a tender or not. A practical guide to MT's certification portfolio and what each approval means in operational terms.
+    </p>
+
+    <div class="mt-12 prose prose-lg max-w-3xl text-graphite leading-relaxed space-y-6">
+
+      <p>
+        The global market for industrial valves is not uniform. Each country, each sector and each project has its own approval requirements, and no European certificate automatically substitutes for another. This complexity is, in itself, one of the main entry barriers facing manufacturers who want to export with seriousness. Producing a valve to a high standard is necessary — but it is not sufficient. Without the right certifications in place, the product simply cannot enter the tender process in many of the markets where the demand exists.
+      </p>
+
+      <p>
+        MT has spent three decades navigating this reality. The result is a portfolio of 14 active international certifications covering the most demanding markets in the world — from Western Europe to the GCC, Australia, Russia and Latin America. Every certification has been earned through formal testing by independent third-party bodies, and every certificate is maintained through periodic audits, batch testing and documentation control. Not a one-time achievement, but a continuous commitment to compliance.
+      </p>
+
+      <h2 class="font-display font-semibold text-2xl text-ink mt-12">European certifications: the highest bar in the world</h2>
+
+      <p>
+        In the European market, MT holds the certifications that define the highest standards of potable water and gas compliance. <strong class="text-ink">DVGW (Germany)</strong> is widely considered Europe's most demanding approval for potable water and gas applications — it is required in tenders across Germany, Austria and Switzerland, and recognised globally as a quality benchmark. <strong class="text-ink">WRAS (United Kingdom)</strong> is mandatory for products in contact with potable water in the UK, and highly valued in markets with British normative heritage including the UAE, India, Singapore and Australia. <strong class="text-ink">ACS (France)</strong> imposes one of the strictest approval processes in the European Union for products in contact with potable water.
+      </p>
+
+      <p>
+        Add to these KIWA and KOMO (Netherlands), SINTEF (Scandinavia), PZH (Poland), AENOR (Spain) and CSTB (France, construction), and MT's catalogue is positioned to enter the public tender of virtually any European country without documentary obstacles.
+      </p>
+
+      <h2 class="font-display font-semibold text-2xl text-ink mt-12">Beyond Europe: GCC, Russia, Australia</h2>
+
+      <p>
+        The portfolio extends to the markets where MT has built — or is building — direct presence. <strong class="text-ink">EAC marking</strong> covers the Eurasian Economic Union, enabling distribution to Russia, Kazakhstan, Belarus, Armenia and Kyrgyzstan. <strong class="text-ink">WaterMark (Australia)</strong> is mandatory for potable water products in Australia and increasingly valued in GCC projects that have adopted Australian standards.
+      </p>
+
+      <p>
+        <strong class="text-ink">ISO 9001</strong> (TÜV-certified across the entire value chain) and <strong class="text-ink">ISO 14001</strong> (environmental management) are baseline requirements in virtually every international tender, and a growing condition in large corporate contracts. <strong class="text-ink">CE marking</strong> under the Pressure Equipment Directive (2014/68/EU) is, of course, mandatory for any pressure equipment sold in the European Union.
+      </p>
+
+      <h2 class="font-display font-semibold text-2xl text-ink mt-12">What it means in practice</h2>
+
+      <p>
+        This certification portfolio means MT's products can be specified in tenders that exclude many competitors at the documentation stage. The most demanding markets in the world — German water utilities, French municipalities, Dutch consortia, GCC public utilities, Russian industrial buyers, Australian local authorities — can specify MT without hesitation because the paperwork is already in place.
+      </p>
+
+      <p>
+        For distributors and project specifiers, this is a critical advantage: when a specification calls for a particular approval, MT can be supplied directly, with declarations of conformity and material test reports per EN 10204 3.1 issued for the specific batch and project.
+      </p>
+
+      <p>
+        Documentation is not a marketing claim. It is operational. Every MT certificate is available on demand from the technical team — both at headquarters in Pallejà (Barcelona) and through the regional team at MT Middle East in Dubai. For products specified for the GCC market, certificate copies are issued in the formats and languages required by DEWA, FEWA, ADDC, Kahramaa, SAWS and the other major public utilities of the region. Quality, in our experience, is what allows us to enter the conversation. Documentation is what allows us to close the deal.
+      </p>
+
+    </div>
+
+    <div class="mt-16 pt-10 border-t border-mist">
+      <div class="eyebrow text-steel">Request certificate copies</div>
+      <p class="mt-3 text-lg">
+        For specific certificate copies, material test reports per EN 10204 3.1, or documentation aligned with a GCC tender, talk to our team.
+      </p>
+      <p class="mt-3 text-lg">
+        <a href={'mailto:' + site.email} class="text-accent underline hover:text-accentDark">{site.email}</a>
+        &nbsp;·&nbsp; {site.phone} &nbsp;·&nbsp; {site.hours}
+      </p>
+      <a href="/contact" class="mt-6 inline-block bg-ink text-paper px-6 py-3 text-sm uppercase tracking-wider2 hover:bg-accent transition">
+        Contact MT Middle East &rarr;
+      </a>
+    </div>
+
+  </article>
+</BaseLayout>

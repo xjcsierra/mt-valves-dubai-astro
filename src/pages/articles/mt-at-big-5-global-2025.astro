@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../config/site';
+
+const title = 'MT at Big 5 Global 2025 — MT Middle East';
+const description = 'Three days in Dubai at Big 5 Global 2025 reshaped our Middle East plans. A short account of what we heard on the show floor.';
+---
+<BaseLayout title={title} description={description} lang="en-GB">
+  <article class="max-w-editorial mx-auto px-6 lg:px-10 py-20">
+
+    <a href="/articles" class="eyebrow text-steel hover:text-accent transition">&larr; All news</a>
+
+    <div class="mt-6 eyebrow text-accent">News · November 2025</div>
+
+    <h1 class="mt-3 font-display font-bold text-4xl lg:text-6xl tracking-tight leading-tight">
+      MT at Big 5 Global 2025: three days in Dubai that reshaped our Middle East plans
+    </h1>
+
+    <p class="mt-6 text-xl text-graphite max-w-3xl leading-relaxed">
+      The largest construction event in the Arab world was not on our calendar as a fair to exhibit. It was on our calendar as a market to listen to. What we heard during those three days at Dubai World Trade Centre pulled forward a decision we had been weighing for two years.
+    </p>
+
+    <div class="mt-12 prose prose-lg max-w-3xl text-graphite leading-relaxed space-y-6">
+
+      <p>
+        Every November, Dubai World Trade Centre fills up with the people who actually build the Middle East. Big 5 Global is a serious gathering — more than 70,000 trade visitors, over 3,000 exhibitors from 150 countries, and a packed calendar of conferences and B2B meetings that, in practice, set the tone for construction across the Arab world for the year ahead. If you want to understand the GCC market without filtering it through reports, Big 5 is where you go.
+      </p>
+
+      <p>
+        In November 2025, a small technical and commercial team from MT travelled to Dubai with a deliberate brief: do not exhibit, listen. We were not there to display valves. We were there to find out whether the demand we kept hearing about from distributors and consultants in the region was real — and what specifically the market needed that it was not getting. We brought questions, not catalogues.
+      </p>
+
+      <p>
+        The first day we walked the floor. Plumbing, HVAC, water treatment, fire protection, infrastructure — pavilion by pavilion. The answer came faster than we expected. Demand for European-certified valves with full documentary traceability in the GCC is real, sustained, and significantly underserved by direct European suppliers. Most of it is filled through intermediaries who add weeks of lead time, extra cost, and documentation that often arrives too late to be useful for a public tender.
+      </p>
+
+      <p>
+        Day two was for conversations. We sat down with MEP contractors, project specifiers, engineering consultancies and regional distributors. The same three frustrations came up again and again.
+      </p>
+
+      <p>
+        First, lead times. European valves typically take 8 to 12 weeks from order to site in the GCC. For a contractor working to a project schedule that already has no slack, that is an uncomfortable position to be in. Second, documentation: declarations of conformity, EN 10204 3.1 material test reports, declarations aligned with DEWA, Kahramaa, FEWA or SAWS — the paperwork tenders are won and lost on — often arrive late, incomplete, or in formats that need rework before submission. Third, the absence of local technical support: when a critical valve fails in a district cooling plant in Dubai, the question is not "when will the replacement arrive" — it is "is there anyone on the ground who understands the specification?". A supplier three weeks away by container ship is not an answer.
+      </p>
+
+      <p>
+        By the third day, the internal conversation inside the MT team had already changed shape. The question was no longer whether there was demand — we had answered that. The question was how quickly we could put a direct presence on the ground. The data from those three days — qualitative from the conversations, quantitative from the project pipelines our potential partners shared with us — was enough to green-light the move we announced publicly months later: a logistics and commercial hub in Jumeirah Lakes Towers, in the centre of Dubai's free trade zone, with permanent stock, locally-issued documentation, and a technical contact who works on Gulf hours.
+      </p>
+
+      <p>
+        For MT, Big 5 Global 2025 was not a trade show. It was the trigger. The Dubai hub is now operational, and we will be back at Big 5 in coming editions — as exhibitors, with our regional team in place and our inventory close by. If you are a distributor, an MEP specifier or a contractor working in the GCC and you want to start the conversation before then, we are a phone call or an email away.
+      </p>
+
+    </div>
+
+    <div class="mt-16 pt-10 border-t border-mist">
+      <div class="eyebrow text-steel">Talk to MT Middle East</div>
+      <p class="mt-3 text-lg">
+        Local stock in Jumeirah Lakes Towers · 48-hour dispatch across the UAE · documentation aligned with GCC tender requirements.
+      </p>
+      <p class="mt-3 text-lg">
+        <a href={'mailto:' + site.email} class="text-accent underline hover:text-accentDark">{site.email}</a>
+        &nbsp;·&nbsp; {site.phone} &nbsp;·&nbsp; {site.hours}
+      </p>
+      <a href="/contact" class="mt-6 inline-block bg-ink text-paper px-6 py-3 text-sm uppercase tracking-wider2 hover:bg-accent transition">
+        Request a quote &rarr;
+      </a>
+    </div>
+
+  </article>
+</BaseLayout>

@@ -5,22 +5,23 @@
  * changing a boolean below — the UI re-renders automatically:
  * navigation links, hero CTAs, footer columns and pages.
  */
-
 export const site = {
   name: 'MT Valves & Fittings UAE',
   shortName: 'MT',
   domain: 'https://mtme.ae',
-  email: 'info@mtme.ae',
-  whatsapp: '', // e.g. '+971500000000' — leave empty to hide
+  email: 'sales@mtme.ae',
+  phone: '+971 (04) 453 4693',
+  hours: 'Sun–Thu · 08:00–17:30 GST',
+  whatsapp: '',
   address: {
-    line1: 'Jebel Ali Free Zone',
-    line2: 'Dubai, United Arab Emirates'
+    line1: 'BB1 Jumeirah Lakes Towers',
+    line2: 'Dubai 32765, United Arab Emirates'
   }
 } as const;
 
 /**
  * Feature flags.
- * Phase 1 (landing only): home + articles + contact = TRUE.
+ * Phase 1 (landing only): home + news + contact = TRUE.
  * Everything else stays FALSE until ready.
  */
 export const features = {
@@ -28,7 +29,6 @@ export const features = {
   home: true,
   articles: true,
   contact: true,
-
   // — Hidden until content is ready —
   catalogue: false,
   industries: false,
@@ -40,13 +40,11 @@ export const features = {
   glossary: false,
   news: false,
   about: false,
-
   // — Functional modules —
   configurator: false,
   cartQuote: false,
-
   // — Internationalization —
-  arabic: false // turn on when AR translations are ready
+  arabic: false
 } as const;
 
 export type FeatureKey = keyof typeof features;
